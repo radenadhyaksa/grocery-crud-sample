@@ -49,6 +49,7 @@ class Welcome extends CI_Controller {
 		  */
 		$crud = new grocery_CRUD();
  
+		$crud->set_theme('datatables');
 		$crud->set_table('employees');
 		$crud->set_relation('emp_no','titles','title');
 		$crud->limit(25,0);
