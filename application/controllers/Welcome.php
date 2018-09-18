@@ -56,6 +56,16 @@ class Welcome extends CI_Controller {
 		$output = $crud->render();
 		$this->load->view('test.html',$output);
 	}
+
+	public function salary()
+	{
+		$crud = new grocery_CRUD();
+ 
+		$crud->set_theme('datatables');
+		$crud->set_table('salaries');
+		$output = $crud->render();
+		$this->load->view('test.html',$output);
+	}
 }
 
 /* End of file welcome.php */
