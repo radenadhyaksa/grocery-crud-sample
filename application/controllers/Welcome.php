@@ -34,12 +34,24 @@ class Welcome extends CI_Controller {
 
 	public function test()
 	{
-		$crud = new Grocery_CRUD();
-		 
+		/*
+		$con = mysqli_connect("localhost","root","","employees");
+		// Check connection
+		if (mysqli_connect_errno())
+		  {
+		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+		  } 
+		  $data = mysqli_query($con,"SELECT * FROM employees LIMIT 10");
+
+		  while ($row = mysqli_fetch_array($data,MYSQLI_NUM)){
+		  	print_r($row);
+		  }   
+		  */
+		$crud = new grocery_CRUD();
+ 
 		$crud->set_table('employees');
 		$output = $crud->render();
-		 
-		$this->test($output);                
+		$this->test($output);  
 	}
 }
 
