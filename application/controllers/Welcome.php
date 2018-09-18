@@ -24,7 +24,7 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 
-		echo 'test';
+		echo '__construct<br>';
 
 		$this->load->database();
 		$this->load->helper('url');
