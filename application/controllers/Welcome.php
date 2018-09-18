@@ -29,17 +29,18 @@ class Welcome extends CI_Controller {
 		$this->load->database();
 		$this->load->helper('url');
 
-		$this->load->library('grocery_CRUD');
+		$this->load->library('Grocery_CRUD');
 	}
 
 	public function index()
 	{
-		echo 'index 1';
+		echo 'run index';
 		$this->load->view('welcome_message');
 	}
 
 	public function test()
 	{
-		echo 'index 2';
+		// run command using: http://localhost/grocery-crud-sample/index.php/welcome/test
+		echo 'run test';
 	}
 }
