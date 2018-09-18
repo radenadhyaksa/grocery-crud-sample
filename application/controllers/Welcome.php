@@ -50,8 +50,9 @@ class Welcome extends CI_Controller {
 		$crud = new grocery_CRUD();
  
 		$crud->set_table('employees');
+		// $crud->limit(1,0);
 		$output = $crud->render();
-		$this->test($output);  
+		$this->load->view('test.html',$output);
 	}
 }
 
