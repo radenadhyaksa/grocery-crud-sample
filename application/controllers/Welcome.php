@@ -51,7 +51,7 @@ class Welcome extends CI_Controller {
  
 		$crud->set_table('employees');
 		$crud->set_relation('emp_no','titles','title');
-		// $crud->limit(1,0);
+		$crud->limit(25,0);
 		$output = $crud->render();
 		$this->load->view('test.html',$output);
 	}
