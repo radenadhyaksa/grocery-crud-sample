@@ -23,8 +23,8 @@ class Welcome extends CI_Controller {
 	    parent::__construct();
 	 
 		$this->load->database();
+		$this->load->helper('url');
 		$this->load->library('Grocery_CRUD');
-	 
 	}
 
 	public function index()
@@ -34,48 +34,45 @@ class Welcome extends CI_Controller {
 
 	public function test()
 	{
-		/*
-		$con = mysqli_connect("localhost","root","","employees");
-		// Check connection
-		if (mysqli_connect_errno())
-		  {
-		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-		  } 
-		  $data = mysqli_query($con,"SELECT * FROM employees LIMIT 10");
-
-		  while ($row = mysqli_fetch_array($data,MYSQLI_NUM)){
-		  	print_r($row);
-		  }   
-		  */
 		$crud = new grocery_CRUD();
- 
-		$crud->set_theme('datatables');
-		$crud->set_table('employees');
-		$crud->set_relation('emp_no','titles','title');
-		$crud->limit(25,0);
+
+		$crud->set_table('departments');
 		$output = $crud->render();
-		$this->load->view('test.html',$output);
+		$this->load->view('sidebar.html');
+		$this->load->view('test.php',$output);
+	
 	}
 
-	public function salary()
+	public function employees()
 	{
 		$crud = new grocery_CRUD();
- 
-		$crud->set_theme('datatables');
+
+		$crud->set_table('employees');
+		$output = $crud->render();
+		$this->load->view('sidebar.html');
+		$this->load->view('test.php',$output);
+	}
+	
+	public function salaries()
+	{
+		$crud = new grocery_CRUD();
+
 		$crud->set_table('salaries');
 		$output = $crud->render();
-		$this->load->view('test.html',$output);
+		$this->load->view('sidebar.html');
+		$this->load->view('test.php',$output);
+
 	}
 
-	public function department()
+	public function titles()
 	{
 		$crud = new grocery_CRUD();
- 
-		$crud->set_theme('datatables');
-		$crud->set_table('departments');
-		$crud->limit(10,0);
+
+		
+		$crud->set_table('titles');
 		$output = $crud->render();
-		$this->load->view('test.html',$output);
+		$this->load->view('sidebar.html');
+		$this->load->view('test.php',$output);
 	}
 }
 
