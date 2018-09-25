@@ -37,6 +37,7 @@ class Welcome extends CI_Controller {
 		$crud = new grocery_CRUD();
 
 		$crud->set_table('departments');
+		$crud->limit(10,0);
 		$output = $crud->render();
 		$this->load->view('sidebar.html');
 		$this->load->view('test.php',$output);
@@ -48,6 +49,7 @@ class Welcome extends CI_Controller {
 		$crud = new grocery_CRUD();
 
 		$crud->set_table('employees');
+		$crud->set_relation('emp_no','titles','title');
 		$output = $crud->render();
 		$this->load->view('sidebar.html');
 		$this->load->view('test.php',$output);
@@ -67,9 +69,9 @@ class Welcome extends CI_Controller {
 	public function titles()
 	{
 		$crud = new grocery_CRUD();
-
 		
 		$crud->set_table('titles');
+		$crud->set_relation('emp_no','titles','title');
 		$output = $crud->render();
 		$this->load->view('sidebar.html');
 		$this->load->view('test.php',$output);
