@@ -55,7 +55,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('test.php',$output);
 	}
 	
-	public function salaries()
+	public function salary()
 	{
 		$crud = new grocery_CRUD();
 
@@ -63,7 +63,6 @@ class Welcome extends CI_Controller {
 		$output = $crud->render();
 		$this->load->view('sidebar.html');
 		$this->load->view('test.php',$output);
-
 	}
 
 	public function titles()
